@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TnActivationCore.Repository.Mssql</name>
+    </assembly>
+    <members>
+        <member name="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.SetDefaultConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Sets the default <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to set default configuration.</param>
+            <param name="configuration">The <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> to set.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+        </member>
+        <member name="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.GetDefaultConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Returns the default <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to get default configuration.</param>
+            <returns>The default <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.</returns>
+            <exception cref="T:System.InvalidOperationException">The default configuration is not set with <seealso cref="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.SetDefaultConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)"/> before.</exception>
+        </member>
+        <member name="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.ConfigureWithOptionName``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Registers a configuration instance which TOptions will bind against.
+            The name of the options instance will be the name of the TOptions class.
+            The configuration being bound will be the configuration set in <see cref="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.SetDefaultConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)"/> method.
+            </summary>
+            <typeparam name="TOptions">The type of options being configured.</typeparam>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to add the services to.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+        </member>
+        <member name="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.ConfigureAndGetWithOptionName``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0@)">
+            <summary>
+            Registers a configuration instance which TOptions will bind against.
+            The name of the options instance will be the name of the TOptions class.
+            The configuration being bound will be the configuration set in <see cref="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.SetDefaultConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)"/> method.
+            Also attempts to bind the configuration instance to a new instance of type TOptions and returns it.
+            </summary>
+            <typeparam name="TOptions">The type of options being configured.</typeparam>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to add the services to.</param>
+            <param name="options">The new instance of TOptions if found, default(TOptions) otherwise.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+        </member>
+        <member name="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.GetOptionWithName``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Attempts to bind the configuration instance to a new instance of type T.
+            If this configuration section has a value, that will be used.
+            Otherwise binding by matching property names against configuration keys recursively.
+            The configuration being bound will be the configuration set in <see cref="M:TnActivationCore.Repository.Mssql.ServiceCollectionExtensions.SetDefaultConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)"/> method.
+            </summary>
+            <typeparam name="TOptions">The type of options being configured.</typeparam>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to add the services to.</param>
+            <returns>The new instance of TOptions if successful, default(TOptions) otherwise.</returns>
+        </member>
+    </members>
+</doc>

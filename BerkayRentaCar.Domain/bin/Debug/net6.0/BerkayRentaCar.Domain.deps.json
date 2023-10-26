@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BerkayRentaCar.Domain/1.0.0": {
+        "dependencies": {
+          "BerkayRentaCar.Common": "1.0.0"
+        },
+        "runtime": {
+          "BerkayRentaCar.Domain.dll": {}
+        }
+      },
+      "BerkayRentaCar.Common/1.0.0": {
+        "runtime": {
+          "BerkayRentaCar.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BerkayRentaCar.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BerkayRentaCar.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
