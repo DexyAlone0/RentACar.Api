@@ -9,5 +9,7 @@ namespace BerkayRentaCar.Contract.Response.CarResponse
         public string ModelName { get; set; }
         public string FuelTypeName { get; set; }
         public string GearTypeName { get; set; }
+        public int FileId { get; set; }
+        
     }
 }

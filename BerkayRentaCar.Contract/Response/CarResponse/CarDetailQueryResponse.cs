@@ -14,6 +14,8 @@ namespace BerkayRentaCar.Contract.Response.CarResponse
         public string GearTypeName { get; set; } = string.Empty;
         public string EngineCapacityName { get; set; } = string.Empty;
         public DateTime CreatedDate { get; set; }
+        public int FileId { get; set; }
+
         public string ModelName { get; set; } = string.Empty;
     }
 }

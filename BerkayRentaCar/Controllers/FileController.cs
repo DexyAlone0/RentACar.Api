@@ -17,10 +17,10 @@ namespace BerkayRentaCar.Controllers
 
         [Route("file/{fileId}")]
         [HttpGet]
-        public async Task<IActionResult> GetByFileId(int fileId)
+        public async Task<FileContentResult> GetByFileId(int fileId)
         {
             var file = await this.fileService.GetFileByIdAsync(fileId);
-            return File(file.Data, file.ContentType, file.Name);
+            return File(file.Data, file.ContentType, file.Name+".png");
         } 
     }
 }

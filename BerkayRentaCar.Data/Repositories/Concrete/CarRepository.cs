@@ -27,6 +27,7 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
                 EngineCapacityName = x.EngineCapacity,
                 FuelTypeName = x.Model.FuelType.Name,
                 GearTypeName = x.Model.GearType.Name,
+                FileId = x.Model.FileId,
 
             }).FirstOrDefaultAsync();
         }
@@ -69,6 +70,8 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
                 GearTypeName = x.Model.GearType.Name,
                 ModelName = x.Model.Name,
                 CreatedDate = x.CreatedDate,
+                FileId = x.Model.FileId
+                
             }).ToList(); 
         }
     }
