@@ -2,6 +2,7 @@
 using BerkayRentaCar.Application.CarQueryService;
 using BerkayRentaCar.Application.FileService;
 using BerkayRentaCar.Application.ModelService;
+using BerkayRentaCar.Application.UserService;
 using BerkayRentaCar.Data.Repositories.Abstract;
 using BerkayRentaCar.Data.Repositories.Concrete;
 
@@ -22,6 +23,9 @@ public static class ApplicationServicesExtension
 
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<IFileRepository, FileRepository>();
+        
+        services.AddScoped<IUserService , UserService>();
+        services.AddScoped<IUserRepsitory, UserRepository>();
 
         return services;
     }
