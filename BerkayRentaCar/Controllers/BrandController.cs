@@ -1,5 +1,6 @@
 ﻿using BerkayRentaCar.Application.BrandService;
 using BerkayRentaCar.Contract.Response.Brand;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -13,6 +14,7 @@ namespace BerkayRentaCar.Controllers
         {
             this.brandService = brandService;
         }
+         
         [Route("all")]
         [HttpGet]
         public async Task<IReadOnlyList<BrandQueryResponse>> GetAll()

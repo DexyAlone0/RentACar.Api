@@ -15,7 +15,7 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
     {
         private readonly IGenericRepository genericRepository;
 
-        public UserRepository(IGenericRepository IGenericRepository)
+        public UserRepository(IGenericRepository genericRepository)
         {
             this.genericRepository = genericRepository;
         }
@@ -31,8 +31,7 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
                 Password = request.Password,
                 Email = request.Email,
                 FullName = request.FullName,
-                UserTypeId = request.UserTypeId,
-                
+                UserTypeId = 2,
             };
             await this.genericRepository.AddAsync(user);
             await this.genericRepository.SaveChangesAsync();
