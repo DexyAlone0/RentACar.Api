@@ -6,5 +6,6 @@ namespace BerkayRentaCar.Application.UserService
     {
         Task<IReadOnlyList<UserQueryResponse>> GetAllAsync();
         Task CreateUserAsync(CreateUserCommandRequest request);
+        Task<bool> UserLoginAsync(UserQueryRequest request);
     }
 }

@@ -14,11 +14,18 @@ public class UserController : ControllerBase
     {
         this.userService = userService;
     }
-     
+
     [Route("CreateUser")]
     [HttpPost]
-    public async Task CreateModel([FromBody]CreateUserCommandRequest request)
+    public async Task CreateUser([FromBody] CreateUserCommandRequest request)
     {
         await this.userService.CreateUserAsync(request);
+    }
+
+    [Route("LoginUser")]
+    [HttpGet]
+    public async Task<bool> LoginUser(UserQueryRequest request)
+    {
+        return await this.userService.UserLoginAsync(request);
     }
 }

@@ -24,6 +24,11 @@ namespace BerkayRentaCar.Application.UserService
             
         }
 
+        public async Task<bool> UserLoginAsync(UserQueryRequest request)
+        {
+            return await this.userRepository.UserLoginAsync(request);
+        }
+
         public async Task<IReadOnlyList<UserQueryResponse>> GetAllAsync()
         {
             var userList = await userRepository.GetAllUser();

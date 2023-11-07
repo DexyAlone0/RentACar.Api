@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using TnActivationCore.Repository.Mssql.GenericRepository;
 
 namespace BerkayRentaCar.Data.Repositories.Concrete
@@ -19,10 +20,12 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
         {
             this.genericRepository = genericRepository;
         }
+
         public async Task<IReadOnlyList<User>> GetAllUser()
         {
             return await this.genericRepository.GetListAsync<User>();
         }
+
         public async Task CreateUserAsync(CreateUserCommandRequest request)
         {
             var user = new User
@@ -35,8 +38,12 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
             };
             await this.genericRepository.AddAsync(user);
             await this.genericRepository.SaveChangesAsync();
+        }
 
-
+        public async Task<bool> UserLoginAsync(UserQueryRequest request)
+        {
+            return await this.genericRepository.GetQueryable<User>()
+                .AnyAsync(x => x.Password == request.Password && x.Name == request.Name);
         }
     }
 }
