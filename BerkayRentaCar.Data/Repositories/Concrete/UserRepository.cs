@@ -40,10 +40,10 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
             await this.genericRepository.SaveChangesAsync();
         }
 
-        public async Task<bool> UserLoginAsync(UserQueryRequest request)
+        public async Task<User?> UserLoginAsync(UserQueryRequest request)
         {
             return await this.genericRepository.GetQueryable<User>()
-                .AnyAsync(x => x.Password == request.Password && x.Name == request.Name);
+                .FirstOrDefaultAsync(x => x.Password == request.Password && x.Name == request.Name);
         }
     }
 }

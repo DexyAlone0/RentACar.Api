@@ -14,6 +14,6 @@ namespace BerkayRentaCar.Data.Repositories.Abstract
         Task<IReadOnlyList<User>> GetAllUser();
 
         Task CreateUserAsync(CreateUserCommandRequest request);
-        Task<bool> UserLoginAsync(UserQueryRequest request);
+        Task<User?> UserLoginAsync(UserQueryRequest request);
     }
 }
