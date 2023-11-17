@@ -2,6 +2,7 @@
 using BerkayRentaCar.Application.CarQueryService;
 using BerkayRentaCar.Application.FileService;
 using BerkayRentaCar.Application.ModelService;
+using BerkayRentaCar.Application.TokenService;
 using BerkayRentaCar.Application.UserService;
 using BerkayRentaCar.Data.Repositories.Abstract;
 using BerkayRentaCar.Data.Repositories.Concrete;
@@ -14,6 +15,8 @@ public static class ApplicationServicesExtension
     { 
         services.AddScoped<IBrandRepository, BrandRepository>();
         services.AddScoped<IBrandService, BrandService>();
+
+        services.AddScoped<ITokenService , TokenService>(); 
 
         services.AddScoped<ICarQueryService, CarQueryService>();
         services.AddScoped<ICarRepository, CarRepository>();
