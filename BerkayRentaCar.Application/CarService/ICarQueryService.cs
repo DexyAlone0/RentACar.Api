@@ -7,5 +7,7 @@ namespace BerkayRentaCar.Application.CarQueryService
     {
         IReadOnlyCollection<CarDetailQueryResponse> GetCarQuery (CarQueryRequest request);
         Task<CarDetailQueryResponse?> GetCarDetailQuery(CarDetailQueryRequest request);
+        Task UpdateCarAsync (UpdateCarRequest request);
+ 
     }
 }

@@ -23,6 +23,9 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
             return await this.genericRepository.GetQueryable<Car>().Where(x=>x.Id == request.CarId).Select(x=> new CarDetailQueryResponse
             {
                 CarId = request.CarId,
+                ModelId = x.ModelId,
+                Year = x.Year,
+                HesAirConditioning = x.HesAirConditioning,
                 BrandName =x.Model.Brand.Name,
                 EngineCapacityName = x.EngineCapacity,
                 FuelTypeName = x.Model.FuelType.Name,
@@ -30,6 +33,34 @@ namespace BerkayRentaCar.Data.Repositories.Concrete
                 FileId = x.Model.FileId,
 
             }).FirstOrDefaultAsync();
+        }
+
+        public async Task UpdateCarAsync(UpdateCarRequest request)
+        {
+            var carUpdate = this.genericRepository.GetQueryable<Car>().FirstOrDefault(x => x.Id == request.Id);
+            if (carUpdate is null)
+            {
+                throw new Exception("Araba bulunamadı");
+            }
+
+            carUpdate.Year = request.Year;
+            carUpdate.HesAirConditioning = request.HesAirConditioning;
+            carUpdate.ModelId = request.ModelId;
+           
+
+            // var carUpdate = new Model
+            // {
+            //     Name = model.Name,
+            //     BrandId = model.BrandId,
+            //     FuelTypeId = model.FuelTypeId,
+            //     GearTypeId = model.GearTypeId,
+            //     CountOfSeats = model.CountOfSeats,
+            //     CaseTypeId = model.CaseTypeId,
+            //     Id = model.Id,
+            //     FileId = 1
+            // };
+            this.genericRepository.Update(carUpdate);
+            await this.genericRepository.SaveChangesAsync();
         }
 
         public async Task<IReadOnlyCollection<CarDetailQueryResponse>> GetCarListAsync(CarQueryRequest request)

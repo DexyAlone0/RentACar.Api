@@ -9,6 +9,7 @@ namespace BerkayRentaCar.Data.Repositories.Abstract
     {
          Task<IReadOnlyCollection<CarDetailQueryResponse>> GetCarListAsync(CarQueryRequest request);
          Task<CarDetailQueryResponse?> GetCarDetailQueryAsync(CarDetailQueryRequest request);
+         Task UpdateCarAsync (UpdateCarRequest request);
 
     }
 }

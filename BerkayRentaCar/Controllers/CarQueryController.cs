@@ -1,6 +1,7 @@
 ﻿using BerkayRentaCar.Application.CarQueryService;
 using BerkayRentaCar.Contract.Request.CarRequest;
 using BerkayRentaCar.Contract.Response.CarResponse;
+using BerkayRentaCar.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BerkayRentaCar.Controllers
@@ -9,6 +10,7 @@ namespace BerkayRentaCar.Controllers
     public class CarQueryController : ControllerBase
     {
         private readonly ICarQueryService carQueryService;
+        
         public CarQueryController(ICarQueryService carQueryService)
         {
             this.carQueryService = carQueryService;
@@ -28,5 +30,14 @@ namespace BerkayRentaCar.Controllers
         {
             return await this.carQueryService.GetCarDetailQuery(request);
         }
+
+        [Route("updateCar")]
+        [HttpPut]
+        public async Task UpdateCar([FromBody]UpdateCarRequest request)
+        {
+            await this.carQueryService.UpdateCarAsync(request);
+        }
+        
+        
     }
 }

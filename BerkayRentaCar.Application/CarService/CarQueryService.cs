@@ -17,6 +17,11 @@ namespace BerkayRentaCar.Application.CarQueryService
             return await this.carRepository.GetCarDetailQueryAsync(request);
         }
 
+        public async Task UpdateCarAsync(UpdateCarRequest request)
+        {
+             await this.carRepository.UpdateCarAsync(request);
+        }
+
         public IReadOnlyCollection<CarDetailQueryResponse> GetCarQuery(CarQueryRequest request)
         {
              return this.carRepository.GetCarListAsync(request).Result;

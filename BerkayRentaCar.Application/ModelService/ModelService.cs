@@ -1,6 +1,7 @@
 ﻿using BerkayRentaCar.Contract.Request.ModelRequest;
 using BerkayRentaCar.Contract.Response.Model;
 using BerkayRentaCar.Data.Repositories.Abstract;
+using BerkayRentaCar.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 
 namespace BerkayRentaCar.Application.ModelService
@@ -16,10 +17,20 @@ namespace BerkayRentaCar.Application.ModelService
         }
 
 
+        public async Task <ModelResponse> GetByModelIdAsync(int modelId)
+        {
+            return await this.modelRepository.GetByModelIdAsync(modelId);
+            
+        }
+
         public async Task CreateModelAsync(CreateModelCommandRequest request)
         {
             var fileid = await this.fileRepository.CreateFileAsync(await GetFile(request.File));
             await this.modelRepository.CreateModelAsync(request, fileid);
+        }
+        public async Task UpdateModelAsync(ModelUpdateRequest model)
+        {
+            await this.modelRepository.UpdateModelAsync(model);
         }
 
         private async Task<Domain.Entities.File> GetFile(IFormFile formFile)
@@ -57,5 +68,6 @@ namespace BerkayRentaCar.Application.ModelService
                 Name = m.Name,
             }).ToList();
         }
+
     }
 }
